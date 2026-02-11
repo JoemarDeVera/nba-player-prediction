@@ -38,6 +38,7 @@ Shot volume metrics (FGA, FGM)
 Context features (home/away)
 
 ## 🏗️ Project Structure
+
 NBA-player-prediction/
 │
 ├── data/
