@@ -108,7 +108,7 @@ R² Score
 - Automatically compute rolling features  
 - Predict next game scoring  
 - View statistical summary
-- 
+  
 ### To run locally:
 
 streamlit run app/app.py
