@@ -118,13 +118,13 @@ streamlit run app/app.py
 
 ## 📦 Installation
 
-Clone the repository:
+### Clone the repository:
 
 git clone https://github.com/JoemarDeVera/nba-player-prediction.git
 cd NBA-player-prediction
 
 
-Install dependencies:
+### Install dependencies:
 
 pip install -r requirements.txt
 
@@ -134,7 +134,7 @@ Run training:
 python src/train_model.py
 
 
-Run the app:
+### Run the app:
 
 streamlit run app/app.py
 
