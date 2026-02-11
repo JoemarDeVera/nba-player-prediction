@@ -78,11 +78,11 @@ Rolling statistics are shifted to prevent data leakage.
 
 ## 🤖 Model
 
-Model Used:
+### Model Used:
 
 Random Forest Regressor
 
-Why Random Forest?
+### Why Random Forest?
 
 Handles nonlinear relationships
 
@@ -90,7 +90,7 @@ Robust to outliers
 
 Works well with structured tabular data
 
-📊 Model Evaluation Metrics
+## 📊 Model Evaluation Metrics
 
 The model is evaluated using:
 
@@ -100,15 +100,9 @@ RMSE (Root Mean Squared Error)
 
 R² Score
 
-Example Output:
-
-MAE: 3.9
-RMSE: 4.8
-R²: 0.64
-
 ## 🚀 Streamlit App
 
-The interactive app allows users to:
+### The interactive app allows users to:
 
 Input last 5 games manually
 
@@ -118,7 +112,7 @@ Predict next game scoring
 
 View statistical summary
 
-To run locally:
+### To run locally:
 
 streamlit run app/app.py
 
