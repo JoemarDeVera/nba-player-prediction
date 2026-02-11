@@ -39,28 +39,28 @@ Context features (home/away)
 
 ## 🏗️ Project Structure
 
+```
 NBA-player-prediction/
 │
-├── data/
-│   ├── raw/
-│   │   └── fake_nba_data.csv
-│   └── processed/
-│       └── featured_data.csv
+├── data/                  # Dataset folder
+│   ├── raw/               # Raw input data
+│   └── processed/         # Feature-engineered dataset
 │
-├── models/
-│   └── random_forest_model.pkl
+├── models/                # Saved trained models
 │
-├── src/
-│   ├── generate_data.py
-│   ├── feature_engineering.py
-│   ├── train_model.py
-│   └── predict.py
+├── src/                   # Core ML pipeline scripts
+│   ├── generate_data.py   # Creates synthetic dataset
+│   ├── feature_engineering.py  # Creates rolling features
+│   ├── train_model.py     # Trains Random Forest model
+│   └── predict.py         # CLI prediction script
 │
-├── app/
+├── app/                   # Streamlit web application
 │   └── app.py
 │
-├── requirements.txt
-└── README.md
+├── requirements.txt       # Project dependencies
+└── README.md              # Project documentation
+```
+
 
 ## ⚙️ Feature Engineering
 
@@ -130,7 +130,7 @@ cd NBA-player-prediction
 pip install -r requirements.txt
 
 
-Run training:
+## Run training:
 
 python src/train_model.py
 
