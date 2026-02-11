@@ -130,7 +130,7 @@ cd NBA-player-prediction
 pip install -r requirements.txt
 
 
-## Run training:
+### Run training:
 
 python src/train_model.py
 
