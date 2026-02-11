@@ -1,6 +1,4 @@
-# nba-player-prediction
-
-## NBA Player Next Game Points Predictor
+# NBA Player Next Game Points Predictor
 
 An end-to-end Machine Learning project that predicts an NBA player's next game scoring performance using historical game statistics and rolling feature engineering.
 
@@ -128,7 +126,7 @@ streamlit run app/app.py
 
 Clone the repository:
 
-git clone https://github.com/yourusername/NBA-player-prediction.git
+git clone https://github.com/JoemarDeVera/nba-player-prediction.git
 cd NBA-player-prediction
 
 
