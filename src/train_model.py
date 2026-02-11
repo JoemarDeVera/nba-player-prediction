@@ -26,15 +26,13 @@ print(df.head())
 # -----------------------------
 # 2 Features & Target
 # -----------------------------
-# Updated to include FGA and FGM
 features = [
     "avg_pts_last_5",
     "avg_min_last_5",
     "trend_pts",
     "minutes",
-    "home_game",
     "FGA",
-    "FGM",
+    "FGM"
 ]
 
 target = "target_points"
@@ -43,7 +41,7 @@ target = "target_points"
 df[features] = df[features].apply(pd.to_numeric, errors='coerce')
 df[target] = pd.to_numeric(df[target], errors='coerce')
 
-# Drop rows that have NaN after conversion
+# Drop rows with NaN
 df = df.dropna(subset=features + [target])
 
 X = df[features]
@@ -59,24 +57,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 # -----------------------------
 # 4 Train Random Forest
 # -----------------------------
-model = RandomForestRegressor(
-    n_estimators=200,  # you can increase trees for better performance
-    max_depth=7,       # optional, controls complexity
-    random_state=42
-)
+model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
 # -----------------------------
 # 5 Predict & Evaluate
 # -----------------------------
 y_pred = model.predict(X_test)
-
-# Ensure numeric & remove any NaNs
-y_test = pd.to_numeric(y_test, errors='coerce')
-y_pred = pd.to_numeric(y_pred, errors='coerce')
-mask = y_test.notna() & pd.notna(y_pred)
-y_test = y_test[mask].astype(float)
-y_pred = y_pred[mask].astype(float)
 
 # Metrics
 mae = mean_absolute_error(y_test, y_pred)

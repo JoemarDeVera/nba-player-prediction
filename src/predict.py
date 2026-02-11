@@ -16,14 +16,14 @@ print("Model loaded successfully!")
 # -----------------------------
 # 2 Input: latest games of a player
 # -----------------------------
-# Example data: last 5–10 games of a player
-# Replace this with real Rotowire stats
+# Example data: last 5 games
+# Replace this with your real stats
 data = [
-    {"minutes": 35.2, "points": 24, "home_game": 1, "FGA": 21, "FGM": 11},
-    {"minutes": 31.0, "points": 23, "home_game": 1, "FGA": 19, "FGM": 9},
-    {"minutes": 36.2, "points": 25, "home_game": 0, "FGA": 17, "FGM": 10},
-    {"minutes": 35.7, "points": 31, "home_game": 0, "FGA": 22, "FGM": 7},
-    {"minutes": 34.7, "points": 28, "home_game": 1, "FGA": 14, "FGM": 5},
+    {"minutes": 35.2, "points": 24, "FGA": 21, "FGM": 11},
+    {"minutes": 31.0, "points": 23, "FGA": 19, "FGM": 9},
+    {"minutes": 36.2, "points": 25, "FGA": 17, "FGM": 10},
+    {"minutes": 35.7, "points": 31, "FGA": 22, "FGM": 7},
+    {"minutes": 34.7, "points": 28, "FGA": 14, "FGM": 5},
 ]
 
 df = pd.DataFrame(data)
@@ -31,20 +31,20 @@ df = pd.DataFrame(data)
 # -----------------------------
 # 3 Compute Rolling Features
 # -----------------------------
-# Last 5 games average points and minutes
 df["avg_pts_last_5"] = df["points"].rolling(window=5).mean().shift(1)
 df["avg_min_last_5"] = df["minutes"].rolling(window=5).mean().shift(1)
-
-# Trend = last game points - avg last 5
 df["trend_pts"] = df["points"].shift(1) - df["avg_pts_last_5"]
 
-# Keep only the last row (next game prediction)
+# Fill NaN for first few games
+df = df.fillna(0)
+
+# Use the last game for prediction
 latest_game = df.iloc[-1]
 
 # -----------------------------
 # 4 Prepare features for prediction
 # -----------------------------
-features = ["avg_pts_last_5", "avg_min_last_5", "trend_pts", "minutes", "home_game", "FGA", "FGM"]
+features = ["avg_pts_last_5", "avg_min_last_5", "trend_pts", "minutes", "FGA", "FGM"]
 X_new = latest_game[features].values.reshape(1, -1)
 
 # -----------------------------
