@@ -9,7 +9,7 @@ Built using Python, Scikit-learn, and Streamlit.
 This project simulates a real-world sports analytics workflow.
 The system predicts how many points a player will score in their next game based on their previous 5 games.
 
-The pipeline includes:
+## The pipeline includes:
 
 Raw data generation
 
@@ -71,7 +71,6 @@ avg_pts_last_5	Rolling average of points over last 5 games
 avg_min_last_5	Rolling average of minutes
 trend_pts	Difference between last game and rolling average
 minutes	Minutes played
-home_game	1 = Home, 0 = Away
 FGA	Field Goal Attempts
 FGM	Field Goal Made
 
@@ -105,14 +104,11 @@ R² Score
 
 ### The interactive app allows users to:
 
-Input last 5 games manually
-
-Automatically compute rolling features
-
-Predict next game scoring
-
-View statistical summary
-
+- Input last 5 games manually (**from oldest to most recent**)  
+- Automatically compute rolling features  
+- Predict next game scoring  
+- View statistical summary
+- 
 ### To run locally:
 
 streamlit run app/app.py
